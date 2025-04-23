@@ -1,0 +1,2 @@
+#gatk VariantFiltration -R $ref -V $input -O $output \  
+gatk VariantFiltration -R $1 -V $2 -O $3 --filter-name "lowAD10" --filter-expression 'vc.getGenotype("{wildcards.acc}").getAD().1 < 10' --filter-name "lowQUAL100" --filter-expression 'QUAL < 100' --filter-name "genomeEnd" --filter-expression 'POS > 29850' --filter-name "highFS60" --filter-expression 'FS >= 60.0' --filter-name "lowQD2.0" --filter-expression 'QD < 2.0' --filter-name "lowReadPosRankSum4.0" --filter-expression 'ReadPosRankSum < -4.0' --filter-name "highSOR4.0" --filter-expression 'SOR >= 4.0'  
